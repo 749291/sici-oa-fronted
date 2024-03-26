@@ -14,6 +14,7 @@
     "test:ci": "npm run lint && npm run test:unit"
   },
   "dependencies": {
+    
     "axios": "0.18.1",
     "core-js": "3.6.5",
     "element-ui": "2.13.2",
@@ -26,6 +27,8 @@
     "vuex": "3.1.0"
   },
   "devDependencies": {
+    "@form-create/element-ui": "^2.5.17",
+    "@form-create/designer": "^1.0.8",
     "@vue/cli-plugin-babel": "4.4.4",
     "@vue/cli-plugin-eslint": "4.4.4",
     "@vue/cli-plugin-unit-jest": "4.4.4",
