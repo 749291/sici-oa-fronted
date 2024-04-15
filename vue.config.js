@@ -37,16 +37,22 @@ module.exports = {
       errors: true
     },
     // before: require('./mock/mock-server.js'),
-  proxy: {
-  '/dev-api': { // 匹配所有以 '/dev-api'开头的请求路径
-    target: 'http://localhost:7491',
-    changeOrigin: true, // 支持跨域
-    pathRewrite: { // 重写路径: 去掉路径中开头的'/dev-api'
-      '^/dev-api': ''
+    proxy: {
+      '/dev-api': { // 匹配所有以 '/dev-api'开头的请求路径
+        target: 'http://localhost:7491',
+        changeOrigin: true, // 支持跨域
+        pathRewrite: { // 重写路径: 去掉路径中开头的'/dev-api'
+          '^/dev-api': ''
+        },
+      },
+      '/prod-api': { // 匹配所有以 '/dev-api'开头的请求路径
+        target: 'http://localhost:7491',
+        changeOrigin: true, // 支持跨域
+        pathRewrite: { // 重写路径: 去掉路径中开头的'/dev-api'
+          '^/prod-api': ''
+        },
+      }
     },
-    
-  }
-}
   },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that
@@ -97,7 +103,7 @@ module.exports = {
             .plugin('ScriptExtHtmlWebpackPlugin')
             .after('html')
             .use('script-ext-html-webpack-plugin', [{
-            // `runtime` must same as runtimeChunk name. default is `runtime`
+              // `runtime` must same as runtimeChunk name. default is `runtime`
               inline: /runtime\..*\.js$/
             }])
             .end()
